@@ -1,6 +1,6 @@
-setwd() #set directory
-getwd() #get the directory
-Sys.setenv(LANG = "en") #set the rstudio error to english
+setwd() ## set directory
+getwd() ## get the directory
+Sys.setenv(LANG = "en") ## set the rstudio error to englishh
 
 ## install.packages("ggplot2")
 library(ggplot2)
