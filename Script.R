@@ -6,9 +6,11 @@ Sys.setenv(LANG = "en") ## set the rstudio error to english
 
 if(!require(ggplot2)) install.packages("ggplot2")
 if(!require(readxl)) install.packages("readxl")
+if(!require(multimode)) install.packages("multimode")
 
 library(ggplot2)
 library(readxl)
+library(multimode)
 
 #### Reading the Data ####
 
@@ -140,5 +142,24 @@ t1_ecc_plot <- ggplot(data = stat_ichnos,
    theme_bw()
 t1_ecc_plot
 
+#### Shapiro-Wilks test ####
+shapiro.test(stat_ichnos$t1_area)
+shapiro.test(stat_ichnos$t2_area)
+shapiro.test(stat_ichnos$t3_area)
+shapiro.test(stat_ichnos$t1_percent)
+shapiro.test(stat_ichnos$t2_percent)
+shapiro.test(stat_ichnos$t3_percent)
+shapiro.test(stat_ichnos$t1_len)
+shapiro.test(stat_ichnos$t1_wid)
+shapiro.test(stat_ichnos$t1_ecc)
 
-
+#### ACR test ####
+modetest(stat_ichnos$t1_area)
+modetest(stat_ichnos$t2_area)
+modetest(stat_ichnos$t3_area)
+modetest(stat_ichnos$t1_percent)
+modetest(stat_ichnos$t2_percent)
+modetest(stat_ichnos$t3_percent)
+modetest(stat_ichnos$t1_len)
+modetest(stat_ichnos$t1_wid)
+modetest(stat_ichnos$t1_ecc)
