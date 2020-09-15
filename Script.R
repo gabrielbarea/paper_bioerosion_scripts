@@ -13,12 +13,10 @@ library(readxl)
 library(multimode)
 
 #### Reading the Data ####
-
 data_ichnos <- read_excel("data.xlsx", trim_ws = FALSE, sheet = "Data")
 stat_ichnos <- read_excel("data.xlsx", trim_ws = FALSE, sheet = "Stat")
 
 #### Boxplot area ####
-
 ichnos_box <- ggplot(data = data_ichnos, mapping = 
                        aes(group = lesion_type, y = lesion_area, 
                            x = lesion_type)) +
@@ -29,7 +27,6 @@ ichnos_box <- ggplot(data = data_ichnos, mapping =
 ichnos_box
 
 #### Circular or Eliptical ####
-
 lw_box <- ggplot(data = data_ichnos, mapping = 
                         aes(y = lesion_lw, 
                             x = lesion_type)) +
@@ -39,7 +36,6 @@ lw_box <- ggplot(data = data_ichnos, mapping =
 lw_box
 
 #### Lesion type - Osteoderm ####
-
 ost_box <- ggplot(data = data_ichnos, mapping = 
                            aes(y = lesion_percentage, x = ost_type)) +
    geom_point(aes(color = factor(lesion_type))) +
@@ -50,7 +46,6 @@ ost_box <- ggplot(data = data_ichnos, mapping =
 ost_box
 
 #### Lesion percentage ####
-
 lesion_box <- ggplot(data = data_ichnos, mapping = 
                            aes(group = lesion_type, y = lesion_percentage, 
                                x = lesion_type)) +
@@ -62,30 +57,25 @@ lesion_box
 
 #### T test ####
 ## Area
-
 t.test(x = stat_ichnos$t1_area, y = stat_ichnos$t2_area)
 t.test(x = stat_ichnos$t1_area, y = stat_ichnos$t3_area)
 t.test(x = stat_ichnos$t2_area, y = stat_ichnos$t3_area)
 
 ## Area Percentage
-
 t.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t2_percent)
 t.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t3_percent)
 t.test(x = stat_ichnos$t2_percent, y = stat_ichnos$t3_percent)
 
 #### Mann Whitney Wilcoxon test ####
 ## Area
-
 wilcox.test(x = stat_ichnos$t1_area, y = stat_ichnos$t2_area)
 wilcox.test(x = stat_ichnos$t1_area, y = stat_ichnos$t3_area)
 wilcox.test(x = stat_ichnos$t2_area, y = stat_ichnos$t3_area)
 
 ## Area Percentage
-
 wilcox.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t2_percent)
 wilcox.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t3_percent)
 wilcox.test(x = stat_ichnos$t2_percent, y = stat_ichnos$t3_percent)
-
 
 #### Density ####
 t1_area_plot <- ggplot(data = stat_ichnos, 
