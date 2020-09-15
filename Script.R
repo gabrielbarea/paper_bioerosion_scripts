@@ -7,10 +7,12 @@ Sys.setenv(LANG = "en") ## set the rstudio error to english
 if(!require(ggplot2)) install.packages("ggplot2")
 if(!require(readxl)) install.packages("readxl")
 if(!require(multimode)) install.packages("multimode")
+if(!require(moments)) install.packages("moments")
 
 library(ggplot2)
 library(readxl)
 library(multimode)
+library(moments)
 
 #### Reading the Data ####
 data_ichnos <- read_excel("data.xlsx", trim_ws = FALSE, sheet = "Data")
@@ -153,3 +155,14 @@ modetest(stat_ichnos$t3_percent)
 modetest(stat_ichnos$t1_len)
 modetest(stat_ichnos$t1_wid)
 modetest(stat_ichnos$t1_ecc)
+
+#### Skewness ####
+agostino.test(stat_ichnos$t1_area)
+agostino.test(stat_ichnos$t2_area)
+agostino.test(stat_ichnos$t3_area)
+agostino.test(stat_ichnos$t1_percent)
+agostino.test(stat_ichnos$t2_percent)
+agostino.test(stat_ichnos$t3_percent)
+agostino.test(stat_ichnos$t1_len)
+agostino.test(stat_ichnos$t1_wid)
+agostino.test(stat_ichnos$t1_ecc)
