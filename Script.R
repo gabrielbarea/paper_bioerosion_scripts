@@ -57,17 +57,6 @@ lesion_box <- ggplot(data = data_ichnos, mapping =
       geom_jitter(shape=16, position=position_jitter(0.2), alpha = 1)
 lesion_box
 
-#### T test ####
-## Area
-t.test(x = stat_ichnos$t1_area, y = stat_ichnos$t2_area)
-t.test(x = stat_ichnos$t1_area, y = stat_ichnos$t3_area)
-t.test(x = stat_ichnos$t2_area, y = stat_ichnos$t3_area)
-
-## Area Percentage
-t.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t2_percent)
-t.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t3_percent)
-t.test(x = stat_ichnos$t2_percent, y = stat_ichnos$t3_percent)
-
 #### Mann Whitney Wilcoxon test ####
 ## Area
 wilcox.test(x = stat_ichnos$t1_area, y = stat_ichnos$t2_area)
@@ -166,3 +155,20 @@ agostino.test(stat_ichnos$t3_percent)
 agostino.test(stat_ichnos$t1_len)
 agostino.test(stat_ichnos$t1_wid)
 agostino.test(stat_ichnos$t1_ecc)
+
+#### ANOVA ####
+## Area
+aov_area <- aov(lesion_a ~ lesion_t, data = stat_ichnos)
+summary(aov_area)
+
+TukeyHSD(aov_area)
+
+plot(aov_area)
+
+## Area Percentage
+aov_perc <- aov(lesion_p ~ lesion_t, data = stat_ichnos)
+summary(aov_perc)
+
+TukeyHSD(aov_perc)
+
+plot(aov_perc)
