@@ -1,8 +1,8 @@
 ## Script author: Gabriel E. Baréa de Barros
 ## Git: https://github.com/gabrielbarea
 
-## Scripts in 'Damaged armour: ante mortem bioerosion lesions produced by fleas, fungi and 
-##   bacteria in osteoderms of Quaternary megafaunal armadillos'
+## Scripts in 'Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion 
+##   lesions in osteoderms of Quaternary armadillos.'
 
 ## Scripts and data used for statistical analysis and graphic production of the paper.
 
@@ -204,8 +204,8 @@ wilcox.test(x = stat_ichnos$t2_percent, y = stat_ichnos$t3_percent)
 
 
 #### Paper Information ####
-## Damaged armour: ante mortem bioerosion lesions produced by fleas, fungi and 
-## bacteria in osteoderms of Quaternary megafaunal armadillos
+## Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion lesions in 
+##   osteoderms of Quaternary armadillos.
 
 ## Moura, J.F. 1; Nascimento, C.S.I. 1; Peixoto, B.C.P.M. 1; de Barros, G.E.B. 2, 
 ## Robbi, B. 3; Fernandes, M. A. 1
