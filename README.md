@@ -1,4 +1,4 @@
-# Scripts in 'Damaged armour: ante mortem bioerosion lesions produced by fleas, fungi and bacteria in osteoderms of Quaternary megafaunal armadillos'
+# Scripts in 'Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion lesions in osteoderms of Quaternary armadillos'
 Scripts and data used for statistical analysis and graphic production of the paper.
 
 
