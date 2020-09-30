@@ -1,4 +1,4 @@
-# Scripts in 'Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion lesions in osteoderms of Quaternary armadillos'
+# Scripts in 'Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion lesions in osteoderms of Quaternary extinct armadillos'
 Scripts and data used for statistical analysis and graphic production of the paper.
 
 
