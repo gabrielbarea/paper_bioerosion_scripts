@@ -2,7 +2,7 @@
 ## Git: https://github.com/gabrielbarea
 
 ## Scripts in 'Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion 
-##   lesions in osteoderms of Quaternary armadillos.'
+##   lesions in osteoderms of Quaternary extinct armadillos.'
 
 ## Scripts and data used for statistical analysis and graphic production of the paper.
 
@@ -205,7 +205,7 @@ wilcox.test(x = stat_ichnos$t2_percent, y = stat_ichnos$t3_percent)
 
 #### Paper Information ####
 ## Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion lesions in 
-##   osteoderms of Quaternary armadillos.
+##   osteoderms of Quaternary extinct armadillos.
 
 ## Moura, J.F. 1; Nascimento, C.S.I. 1; Peixoto, B.C.P.M. 1; de Barros, G.E.B. 2, 
 ## Robbi, B. 3; Fernandes, M. A. 1
