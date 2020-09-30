@@ -31,7 +31,6 @@ library(moments)  ## Identify data skewness
 data_ichnos <- read_excel("data.xlsx", trim_ws = FALSE, sheet = "Data") ## Read data sheet
 stat_ichnos <- read_excel("data.xlsx", trim_ws = FALSE, sheet = "Stat") ## Read stat sheet
 
-
 #### Figure 3a - Boxplot of Area ####
 ichnos_box <- ggplot(data = data_ichnos, mapping = 
                        aes(group = lesion_type, y = lesion_area, 
@@ -71,9 +70,8 @@ ost_box <- ggplot(data = data_ichnos, mapping =
    
 ost_box
 
-
-#### Supplementary Material Figure S1 - Density Plots####
-## Monocirculichnus area
+#### Supplementary Material Figure S1 - Density Plots ####
+## Minicirculichnus area
 t1_area_plot <- ggplot(data = stat_ichnos, 
                        aes(x = t1_area)) + 
    geom_density() + 
@@ -94,7 +92,7 @@ t3_area_plot <- ggplot(data = stat_ichnos,
    theme_bw()
 t3_area_plot
 
-## Monocirculichnus percentage area
+## Minicirculichnus percentage area
 t1_percent_plot <- ggplot(data = stat_ichnos, 
                           aes(x = t1_percent)) + 
    geom_density() + 
@@ -115,61 +113,59 @@ t3_percent_plot <- ggplot(data = stat_ichnos,
    theme_bw()
 t3_percent_plot
 
-## Monocirculichnus Length
+## Minicirculichnus Length
 t1_len_plot <- ggplot(data = stat_ichnos, 
                       aes(x = t1_len)) + 
    geom_density() + 
    theme_bw()
 t1_len_plot
 
-## Monocirculichnus Width
+## Minicirculichnus Width
 t1_wid_plot <- ggplot(data = stat_ichnos, 
                       aes(x = t1_wid)) + 
    geom_density() + 
    theme_bw()
 t1_wid_plot
 
-## Monocirculichnus Eccentricity
+## Minicirculichnus Eccentricity
 t1_ecc_plot <- ggplot(data = stat_ichnos, 
                       aes(x = t1_ecc)) + 
    geom_density() + 
    theme_bw()
 t1_ecc_plot
 
-
 #### Supplementary Material Table S4 - Shapiro-Wilks ####
-shapiro.test(stat_ichnos$t1_area)      ## Monocirculichnus area 
+shapiro.test(stat_ichnos$t1_area)      ## Minicirculichnus area 
 shapiro.test(stat_ichnos$t2_area)      ## Violinichnus area 
 shapiro.test(stat_ichnos$t3_area)      ## Trypophobichnus area 
-shapiro.test(stat_ichnos$t1_percent)   ## Monocirculichnus percentage area 
+shapiro.test(stat_ichnos$t1_percent)   ## Minicirculichnus percentage area 
 shapiro.test(stat_ichnos$t2_percent)   ## Violinichnus percentage area 
 shapiro.test(stat_ichnos$t3_percent)   ## Trypophobichnus percentage area 
-shapiro.test(stat_ichnos$t1_len)       ## Monocirculichnus Length 
-shapiro.test(stat_ichnos$t1_wid)       ## Monocirculichnus Width 
-shapiro.test(stat_ichnos$t1_ecc)       ## Monocirculichnus Eccentricity 
+shapiro.test(stat_ichnos$t1_len)       ## Minicirculichnus Length 
+shapiro.test(stat_ichnos$t1_wid)       ## Minicirculichnus Width 
+shapiro.test(stat_ichnos$t1_ecc)       ## Minicirculichnus Eccentricity 
 
 #### Supplementary Material Table S4 - ACR test ####
-modetest(stat_ichnos$t1_area)    ## Monocirculichnus area
+modetest(stat_ichnos$t1_area)    ## Minicirculichnus area
 modetest(stat_ichnos$t2_area)    ## Violinichnus area
 modetest(stat_ichnos$t3_area)    ## Trypophobichnus area
-modetest(stat_ichnos$t1_percent) ## Monocirculichnus percentage area
+modetest(stat_ichnos$t1_percent) ## Minicirculichnus percentage area
 modetest(stat_ichnos$t2_percent) ## Violinichnus percentage area
 modetest(stat_ichnos$t3_percent) ## Trypophobichnus percentage area
-modetest(stat_ichnos$t1_len)     ## Monocirculichnus Length
-modetest(stat_ichnos$t1_wid)     ## Monocirculichnus Width
-modetest(stat_ichnos$t1_ecc)     ## Monocirculichnus Eccentricity
+modetest(stat_ichnos$t1_len)     ## Minicirculichnus Length
+modetest(stat_ichnos$t1_wid)     ## Minicirculichnus Width
+modetest(stat_ichnos$t1_ecc)     ## Minicirculichnus Eccentricity
 
 #### Supplementary Material Table S4 - D'Agostino ####
-agostino.test(stat_ichnos$t1_area)     ## Monocirculichnus area
+agostino.test(stat_ichnos$t1_area)     ## Minicirculichnus area
 agostino.test(stat_ichnos$t2_area)     ## Violinichnus area
 agostino.test(stat_ichnos$t3_area)     ## Trypophobichnus area
-agostino.test(stat_ichnos$t1_percent)  ## Monocirculichnus percentage area
+agostino.test(stat_ichnos$t1_percent)  ## Minicirculichnus percentage area
 agostino.test(stat_ichnos$t2_percent)  ## Violinichnus percentage area
 agostino.test(stat_ichnos$t3_percent)  ## Trypophobichnus percentage area
-agostino.test(stat_ichnos$t1_len)      ## Monocirculichnus Length
-agostino.test(stat_ichnos$t1_wid)      ## Monocirculichnus Width
-agostino.test(stat_ichnos$t1_ecc)      ## Monocirculichnus Eccentricity
-
+agostino.test(stat_ichnos$t1_len)      ## Minicirculichnus Length
+agostino.test(stat_ichnos$t1_wid)      ## Minicirculichnus Width
+agostino.test(stat_ichnos$t1_ecc)      ## Minicirculichnus Eccentricity
 
 #### Supplementary Material Table S5 - Kruskal-Wallis ####
 ## Area
@@ -182,26 +178,24 @@ pairwise.wilcox.test(stat_ichnos$lesion_p, stat_ichnos$lesion_t, p.adjust.method
 
 #### Supplementary Material Table S5 - Mann Whitney Wilcoxon ####
 ## Area
-## Monocirculichnus x Violinichnus
+## Minicirculichnus x Violinichnus
 wilcox.test(x = stat_ichnos$t1_area, y = stat_ichnos$t2_area)
 
-## Monocirculichnus x Trypophobichnus
+## Minicirculichnus x Trypophobichnus
 wilcox.test(x = stat_ichnos$t1_area, y = stat_ichnos$t3_area)
 
 ## Violinichnus x Trypophobichnus
 wilcox.test(x = stat_ichnos$t2_area, y = stat_ichnos$t3_area)
 
-
 ## Area Percentage
-## Monocirculichnus x Violinichnus
+## Minicirculichnus x Violinichnus
 wilcox.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t2_percent)
 
-## Monocirculichnus x Trypophobichnus
+## Minicirculichnus x Trypophobichnus
 wilcox.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t3_percent)
 
 ## Violinichnus x Trypophobichnus
 wilcox.test(x = stat_ichnos$t2_percent, y = stat_ichnos$t3_percent)
-
 
 #### Paper Information ####
 ## Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion lesions in 
