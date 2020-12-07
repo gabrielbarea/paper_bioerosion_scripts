@@ -38,7 +38,7 @@ ichnos_box <- ggplot(data = data_ichnos, mapping =
                            x = lesion_type)) +
       geom_boxplot(fill='#A4A4A4', color="black") + 
       theme_bw() + scale_y_log10() + 
-      scale_x_discrete(limits = c("M", "V", "T")) +
+      scale_x_discrete(limits = c("M", "V", "U")) +
       geom_jitter(position=position_jitter(0.2))
 ichnos_box
 
@@ -48,7 +48,7 @@ lesion_box <- ggplot(data = data_ichnos, mapping =
                             x = lesion_type)) +
    geom_boxplot(outlier.alpha = 1, fill='#A4A4A4', color="black") + 
    theme_bw() + scale_y_log10() + 
-   scale_x_discrete(limits = c("M", "V", "T")) +
+   scale_x_discrete(limits = c("M", "V", "U")) +
    geom_jitter(shape=16, position=position_jitter(0.2), alpha = 1)
 lesion_box
 
@@ -68,11 +68,23 @@ ost_box <- ggplot(data = data_ichnos, mapping =
    geom_boxplot(fill='#A4A4A4', color="black") + 
       theme_bw() + scale_y_log10() + 
       geom_jitter(aes(color = factor(lesion_type)))
-   
 ost_box
 
 
 #### Supplementary Material Figure S1 - Density Plots####
+
+## Lesion area
+area_lesion <- ggplot(data = stat_ichnos, aes(y = lesion_t, x = lesion_a)) + 
+   geom_density_ridges() + scale_x_log10() +
+   theme_ridges()
+area_lesion
+
+# Lesion percentage
+lesion_perc <- ggplot(data = stat_ichnos, aes(y = lesion_t, x = lesion_p)) + 
+   geom_density_ridges() + scale_x_log10() +
+   theme_ridges()
+lesion_perc
+
 ## Minicirculichnus area
 t1_area_plot <- ggplot(data = stat_ichnos, 
                        aes(x = t1_area)) + 
