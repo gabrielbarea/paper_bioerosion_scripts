@@ -1,8 +1,8 @@
 ## Script author: Gabriel E. Baréa de Barros
 ## Git: https://github.com/gabrielbarea
 
-## Scripts in 'Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion 
-##   lesions in osteoderms of Quaternary extinct armadillos.'
+## Scripts in 'Damaged armor: ichnotaxonomy and paleoparasitology of bioerosion lesions in
+## osteoderms of Quaternary extinct armadillos'
 
 ## Scripts and data used for statistical analysis and graphic production of the paper.
 
@@ -30,6 +30,7 @@ library(moments)  ## Identify data skewness
 #### Reading the Data ####
 data_ichnos <- read_excel("data.xlsx", trim_ws = FALSE, sheet = "Data") ## Read data sheet
 stat_ichnos <- read_excel("data.xlsx", trim_ws = FALSE, sheet = "Stat") ## Read stat sheet
+
 
 #### Figure 3a - Boxplot of Area ####
 ichnos_box <- ggplot(data = data_ichnos, mapping = 
@@ -70,7 +71,8 @@ ost_box <- ggplot(data = data_ichnos, mapping =
    
 ost_box
 
-#### Supplementary Material Figure S1 - Density Plots ####
+
+#### Supplementary Material Figure S1 - Density Plots####
 ## Minicirculichnus area
 t1_area_plot <- ggplot(data = stat_ichnos, 
                        aes(x = t1_area)) + 
@@ -85,7 +87,7 @@ t2_area_plot <- ggplot(data = stat_ichnos,
    theme_bw()
 t2_area_plot
 
-## Trypophobichnus area
+## Ulcerative Lesions area
 t3_area_plot <- ggplot(data = stat_ichnos, 
                        aes(x = t3_area)) + 
    geom_density() + 
@@ -106,7 +108,7 @@ t2_percent_plot <- ggplot(data = stat_ichnos,
    theme_bw()
 t2_percent_plot
 
-## Trypophobichnus percentage area
+## Ulcerative Lesion percentage area
 t3_percent_plot <- ggplot(data = stat_ichnos, 
                           aes(x = t3_percent)) + 
    geom_density() + 
@@ -134,13 +136,14 @@ t1_ecc_plot <- ggplot(data = stat_ichnos,
    theme_bw()
 t1_ecc_plot
 
+
 #### Supplementary Material Table S4 - Shapiro-Wilks ####
 shapiro.test(stat_ichnos$t1_area)      ## Minicirculichnus area 
 shapiro.test(stat_ichnos$t2_area)      ## Violinichnus area 
-shapiro.test(stat_ichnos$t3_area)      ## Trypophobichnus area 
+shapiro.test(stat_ichnos$t3_area)      ## Ulcerative Lesions area 
 shapiro.test(stat_ichnos$t1_percent)   ## Minicirculichnus percentage area 
 shapiro.test(stat_ichnos$t2_percent)   ## Violinichnus percentage area 
-shapiro.test(stat_ichnos$t3_percent)   ## Trypophobichnus percentage area 
+shapiro.test(stat_ichnos$t3_percent)   ## Ulcerative Lesions percentage area 
 shapiro.test(stat_ichnos$t1_len)       ## Minicirculichnus Length 
 shapiro.test(stat_ichnos$t1_wid)       ## Minicirculichnus Width 
 shapiro.test(stat_ichnos$t1_ecc)       ## Minicirculichnus Eccentricity 
@@ -148,10 +151,10 @@ shapiro.test(stat_ichnos$t1_ecc)       ## Minicirculichnus Eccentricity
 #### Supplementary Material Table S4 - ACR test ####
 modetest(stat_ichnos$t1_area)    ## Minicirculichnus area
 modetest(stat_ichnos$t2_area)    ## Violinichnus area
-modetest(stat_ichnos$t3_area)    ## Trypophobichnus area
+modetest(stat_ichnos$t3_area)    ## Ulcerative Lesions area
 modetest(stat_ichnos$t1_percent) ## Minicirculichnus percentage area
 modetest(stat_ichnos$t2_percent) ## Violinichnus percentage area
-modetest(stat_ichnos$t3_percent) ## Trypophobichnus percentage area
+modetest(stat_ichnos$t3_percent) ## Ulcerative Lesions percentage area
 modetest(stat_ichnos$t1_len)     ## Minicirculichnus Length
 modetest(stat_ichnos$t1_wid)     ## Minicirculichnus Width
 modetest(stat_ichnos$t1_ecc)     ## Minicirculichnus Eccentricity
@@ -159,13 +162,14 @@ modetest(stat_ichnos$t1_ecc)     ## Minicirculichnus Eccentricity
 #### Supplementary Material Table S4 - D'Agostino ####
 agostino.test(stat_ichnos$t1_area)     ## Minicirculichnus area
 agostino.test(stat_ichnos$t2_area)     ## Violinichnus area
-agostino.test(stat_ichnos$t3_area)     ## Trypophobichnus area
+agostino.test(stat_ichnos$t3_area)     ## Ulcerative Lesions area
 agostino.test(stat_ichnos$t1_percent)  ## Minicirculichnus percentage area
 agostino.test(stat_ichnos$t2_percent)  ## Violinichnus percentage area
-agostino.test(stat_ichnos$t3_percent)  ## Trypophobichnus percentage area
+agostino.test(stat_ichnos$t3_percent)  ## Ulcerative Lesions percentage area
 agostino.test(stat_ichnos$t1_len)      ## Minicirculichnus Length
 agostino.test(stat_ichnos$t1_wid)      ## Minicirculichnus Width
 agostino.test(stat_ichnos$t1_ecc)      ## Minicirculichnus Eccentricity
+
 
 #### Supplementary Material Table S5 - Kruskal-Wallis ####
 ## Area
@@ -181,25 +185,27 @@ pairwise.wilcox.test(stat_ichnos$lesion_p, stat_ichnos$lesion_t, p.adjust.method
 ## Minicirculichnus x Violinichnus
 wilcox.test(x = stat_ichnos$t1_area, y = stat_ichnos$t2_area)
 
-## Minicirculichnus x Trypophobichnus
+## Minicirculichnus x Ulcerative Lesions
 wilcox.test(x = stat_ichnos$t1_area, y = stat_ichnos$t3_area)
 
-## Violinichnus x Trypophobichnus
+## Violinichnus x Ulcerative Lesions
 wilcox.test(x = stat_ichnos$t2_area, y = stat_ichnos$t3_area)
+
 
 ## Area Percentage
 ## Minicirculichnus x Violinichnus
 wilcox.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t2_percent)
 
-## Minicirculichnus x Trypophobichnus
+## Minicirculichnus x Ulcerative Lesions
 wilcox.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t3_percent)
 
-## Violinichnus x Trypophobichnus
+## Violinichnus x Ulcerative Lesions
 wilcox.test(x = stat_ichnos$t2_percent, y = stat_ichnos$t3_percent)
 
+
 #### Paper Information ####
-## Damaged armor: Ichnotaxonomy and paleoparasitology of bioerosion lesions in 
-##   osteoderms of Quaternary extinct armadillos.
+## Damaged armor: ichnotaxonomy and paleoparasitology of bioerosion lesions in osteoderms 
+## of Quaternary extinct armadillos
 
 ## Moura, J.F. 1; Nascimento, C.S.I. 1; Peixoto, B.C.P.M. 1; de Barros, G.E.B. 2, 
 ## Robbi, B. 3; Fernandes, M. A. 1
