@@ -21,11 +21,13 @@ if(!require(ggplot2)) install.packages("ggplot2")
 if(!require(readxl)) install.packages("readxl")
 if(!require(multimode)) install.packages("multimode")
 if(!require(moments)) install.packages("moments")
+if(!require(ggridges)) install.packages("ggridges")
 
 library(ggplot2)  ## Graphics production
 library(readxl)   ## Read .xlsx files
 library(multimode)## Multimodal analysis 
 library(moments)  ## Identify data skewness
+library(ggridges) ## Ridgeline plot (joyplot)
 
 #### Reading the Data ####
 data_ichnos <- read_excel("data.xlsx", trim_ws = FALSE, sheet = "Data") ## Read data sheet
@@ -68,15 +70,14 @@ ost_box <- ggplot(data = data_ichnos, mapping =
 ost_box
 
 #### Supplementary Material Figure S1 - Density Plots####
-
 ## Lesion area
-area_lesion <- ggplot(data = stat_ichnos, aes(y = lesion_t, x = lesion_a)) + 
-      geom_density_ridges() + scale_x_log10() + theme_ridges()
+area_lesion <- ggplot(data = stat_ichnos, aes(y = lesion_t, x = lesion_a)) +
+   geom_density_ridges() + scale_x_log10() + theme_ridges()
 area_lesion
 
 # Lesion percentage
 lesion_perc <- ggplot(data = stat_ichnos, aes(y = lesion_t, x = lesion_p)) +
-      geom_density_ridges() + scale_x_log10() + theme_ridges()
+   geom_density_ridges() + scale_x_log10() + theme_ridges()
 lesion_perc
 
 ## Karethraichnus area
@@ -183,22 +184,19 @@ wilcox.test(x = stat_ichnos$t1_percent, y = stat_ichnos$t3_percent)
 wilcox.test(x = stat_ichnos$t2_percent, y = stat_ichnos$t3_percent)
 
 #### Paper Information ####
-## Damaged armor: ichnotaxonomy and paleoparasitology of bioerosion lesions in osteoderms 
-##    of Quaternary extinct armadillos
+## Moura, J.F. ¹; Nascimento, C.S.I. ¹; Peixoto, B.C.P.M. ¹; de Barros, G.E.B. ²;
+##    Robbi, B. ³; Fernandes M.A. ¹
 
-## Moura, J.F. ★; Nascimento, C.S.I. ★; Peixoto, B.C.P.M. ★; de Barros, G.E.B. ✪;
-##    Robbi, B. ✦; Fernandes M.A. ★
-
-## ★ Programa de Pós-Graduação em Ecologia e Recursos Naturais, Laboratório de 
+## ¹ Programa de Pós-Graduação em Ecologia e Recursos Naturais, Laboratório de 
 ##    Paleoecologia e Paleoicnologia, Departamento de Ecologia e Biologia Evolutiva, 
 ##    Universidade Federal de São Carlos, Rod. Washington Luís, KM 235, São Carlos, SP, 
 ##    Brasil. mouradejesus@gmail.com; carolina.staisabel@gmail.com; 
 ##    b.peixoto@protonmail.com; mafernandes@ufscar.com
 
-## ✪ Programa de Pós-Graduação em Biologia Comparada, Departamento de Biologia, Faculdade 
+## ² Programa de Pós-Graduação em Biologia Comparada, Departamento de Biologia, Faculdade 
 ##    de Filosofia, Ciências e Letras de Ribeirão Preto (FFCLRP), Universidade de 
 ##    São Paulo (USP), Av. Bandeirantes, 3900, Monte Alegre, Ribeirão Preto, SP, Brasil. 
 ##    gbareabarros@usp.br;
 
-## ✦ Programa de Pós-Graduação em Conservação da Fauna, Universidade Federal de São Carlos
+## ³ Programa de Pós-Graduação em Conservação da Fauna, Universidade Federal de São Carlos
 ##    Rod. Washington Luís, km 235, São Carlos, SP, Brasil. bia_robbi_93@gmail.com.
